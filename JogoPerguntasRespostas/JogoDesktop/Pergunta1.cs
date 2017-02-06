@@ -31,6 +31,8 @@ namespace JogoDesktop
 
                 comando.Connection = conexao;
 
+
+                //CRIA A VARIÁVEL DE INSERÇÃO
                 string insert = "INSERT INTO tb_perguntas";
                 insert += "(pergunta, resposta_correta)";
                 insert += " VALUES ";
@@ -41,10 +43,16 @@ namespace JogoDesktop
 
                 insert += " ) ";
 
-                    
+                //ABRE A CONEXÃO   
                 conexao.Open();
+
+                //PASSA O COMANDO INSERT COMPLETO
                 comando.CommandText = insert;
+
+                //EXECUTA O INSERT
                 comando.ExecuteNonQuery();
+
+                //FECHA A CONEXÃO
                 conexao.Close();
 
 

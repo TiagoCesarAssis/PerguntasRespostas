@@ -13,9 +13,11 @@ namespace JogoDesktop
 {
     public partial class Pergunta1 : Form
     {
-        public Pergunta1()
+        public int id_jogador_banco;
+        public Pergunta1(int id_jogador)
         {
             InitializeComponent();
+            id_jogador_banco = id_jogador;
         }
 
         private void btnProxima_Click(object sender, EventArgs e)
@@ -34,12 +36,14 @@ namespace JogoDesktop
 
                 //CRIA A VARIÁVEL DE INSERÇÃO
                 string insert = "INSERT INTO tb_perguntas";
-                insert += "(pergunta, resposta_correta)";
+                insert += "(pergunta, resposta_correta, id_jogador)";
                 insert += " VALUES ";
                 insert += " ( ";
 
                 insert += " '" + lblPergunta.Text + "' ,";
-                insert += " '" + rdbResposta4.Text + "' ";
+                insert += " '" + rdbResposta4.Text + "' ,";
+                insert += " '" + id_jogador_banco + "' ";
+
 
                 insert += " ) ";
 

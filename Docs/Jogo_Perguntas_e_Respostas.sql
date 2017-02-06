@@ -31,7 +31,7 @@ insert into tb_Perguntas(pergunta,resposta_correta)
 values('Qual a capital do Paraná?','Curitiba')
 
 --Seleciona na tabela tb_Jogador
-select * from tb_jogador
+select * from tb_Perguntas
 
 --Deleta o id=10 da tabela tb_Jogador
 delete from tb_Jogador where id = 10
@@ -46,8 +46,16 @@ delete from tb_Jogador
 truncate table tb_Jogador
 
 --Alteração na tabela tb_Jogador, inserindo a coluna id_Jogador
-alter table tb_Jogador add id_Jogador int
+alter table tb_Perguntas add id_Jogador int
 
 --Alteração na tabela tb_Perguntas, inserindo a coluna id_Jogador
-alter table tb_Perguntas drop column id_Jogador
+alter table tb_Jogador drop column id_Jogador
 
+--Faz a junção das tabelas tb_Jogador com a tabela tb_Perguntas onde tb_Jogador = tb_Perguntas.id_Jogador
+select * from tb_Jogador join tb_Perguntas on tb_Jogador.id = tb_Perguntas.id_Jogador
+
+select * from tb_Jogador
+
+
+--Seleciona o último id inserido NA TABELA ATIVA
+select @@IDENTITY

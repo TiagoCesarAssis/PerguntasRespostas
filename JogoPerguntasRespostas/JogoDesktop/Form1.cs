@@ -50,22 +50,29 @@ namespace JogoDesktop
                 //using System.Data.SqlClient;
                 using (SqlConnection conexao = new SqlConnection("Server=AME0556342W10-1\\SQLEXPRESS;Database=db_PerguntasERespostas;Trusted_Connection=Yes"))
                 {
-                    using(SqlCommand comando = new SqlCommand("insert into tb_jogador(nome) values(@NOME)",conexao))
+                    using(SqlCommand comando = new SqlCommand("insert into tb_jogador(nome) OUTPUT INSERTED.ID values(@NOME)",conexao))
                     {
                         comando.Parameters.AddWithValue("NOME", txtNome.Text);
                         conexao.Open();
 
                         if(comando.ExecuteNonQuery() == 1)
                         {
+                            int id_Jogador = (int)comando.ExecuteScalar();
+
+                            MessageBox.Show("O id inserido foi " + id_Jogador);
+
                             MessageBox.Show("Olá " + txtNome.Text.ToUpper() + ". Você está pronto para continuar!!!", "PLAYYYY", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                             System.Media.SoundPlayer player = new System.Media.SoundPlayer();
                             player.SoundLocation = "C:\\vm\\teste\\electronics001.wav";
                             player.Play();
 
-                            Pergunta1 p1 = new Pergunta1();
-                            //ShowDialog= não consegue fechar a jenela anterior
+
+                            //Abertura do formulário de pergunta
+                            Pergunta1 p1 = new Pergunta1(id_Jogador);
                             p1.ShowDialog();
+
+                            
 
                         }
                         else

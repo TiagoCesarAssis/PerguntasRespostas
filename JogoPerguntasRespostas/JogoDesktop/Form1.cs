@@ -55,10 +55,11 @@ namespace JogoDesktop
                         comando.Parameters.AddWithValue("NOME", txtNome.Text);
                         conexao.Open();
 
-                        if(comando.ExecuteNonQuery() == 1)
-                        {
-                            int id_Jogador = (int)comando.ExecuteScalar();
+                        int id_Jogador = (int)comando.ExecuteScalar();
 
+                        if (id_Jogador > 0)
+                        {
+                            
                             MessageBox.Show("O id inserido foi " + id_Jogador);
 
                             MessageBox.Show("Olá " + txtNome.Text.ToUpper() + ". Você está pronto para continuar!!!", "PLAYYYY", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -71,8 +72,15 @@ namespace JogoDesktop
                             //Abertura do formulário de pergunta
                             Pergunta1 p1 = new Pergunta1(id_Jogador);
                             p1.ShowDialog();
+                            Pergunta2 p2 = new Pergunta2(id_Jogador);
+                            p2.ShowDialog();
+                            Pergunta3 p3 = new Pergunta3(id_Jogador);
+                            p3.ShowDialog();
+                            Pergunta4 p4 = new Pergunta4(id_Jogador);
+                            p4.ShowDialog();
 
-                            
+
+
 
                         }
                         else

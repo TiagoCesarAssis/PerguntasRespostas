@@ -44,6 +44,7 @@
             this.lblPergunta.Size = new System.Drawing.Size(130, 13);
             this.lblPergunta.TabIndex = 0;
             this.lblPergunta.Text = "Qual a capital do Paraná?";
+            this.lblPergunta.Click += new System.EventHandler(this.lblPergunta_Click);
             // 
             // rdbResposta1
             // 
@@ -55,6 +56,7 @@
             this.rdbResposta1.TabStop = true;
             this.rdbResposta1.Text = "Porto Alegre";
             this.rdbResposta1.UseVisualStyleBackColor = true;
+            this.rdbResposta1.CheckedChanged += new System.EventHandler(this.rdbResposta1_CheckedChanged);
             // 
             // rdbResposta2
             // 
@@ -66,6 +68,7 @@
             this.rdbResposta2.TabStop = true;
             this.rdbResposta2.Text = "Paranavaí";
             this.rdbResposta2.UseVisualStyleBackColor = true;
+            this.rdbResposta2.CheckedChanged += new System.EventHandler(this.rdbResposta2_CheckedChanged);
             // 
             // rdbResposta3
             // 
@@ -77,6 +80,7 @@
             this.rdbResposta3.TabStop = true;
             this.rdbResposta3.Text = "Umuarama";
             this.rdbResposta3.UseVisualStyleBackColor = true;
+            this.rdbResposta3.CheckedChanged += new System.EventHandler(this.rdbResposta3_CheckedChanged);
             // 
             // rdbResposta4
             // 
@@ -88,6 +92,7 @@
             this.rdbResposta4.TabStop = true;
             this.rdbResposta4.Text = "Curitiba";
             this.rdbResposta4.UseVisualStyleBackColor = true;
+            this.rdbResposta4.CheckedChanged += new System.EventHandler(this.rdbResposta4_CheckedChanged);
             // 
             // btnProxima
             // 
@@ -111,6 +116,7 @@
             this.Controls.Add(this.rdbResposta1);
             this.Controls.Add(this.lblPergunta);
             this.Name = "Pergunta1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pergunta1";
             this.ResumeLayout(false);
             this.PerformLayout();

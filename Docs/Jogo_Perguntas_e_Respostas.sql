@@ -44,6 +44,7 @@ delete from tb_Jogador
 
 --truncate= limpa os dados da tabela e reinicia a numeração do id
 truncate table tb_Jogador
+truncate table tb_Perguntas
 
 --Alteração na tabela tb_Jogador, inserindo a coluna id_Jogador
 alter table tb_Perguntas add id_Jogador int
@@ -55,6 +56,7 @@ alter table tb_Jogador drop column id_Jogador
 select * from tb_Jogador join tb_Perguntas on tb_Jogador.id = tb_Perguntas.id_Jogador
 
 select * from tb_Jogador
+select * from tb_Perguntas
 
 
 --Seleciona o último id inserido NA TABELA ATIVA

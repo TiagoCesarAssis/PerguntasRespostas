@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace JogoDesktop
 {
-    public partial class Pergunta1 : Form
+    public partial class Pergunta2 : Form
     {
         public int id_jogador_banco;
-        public Pergunta1(int id_jogador)
+
+        public Pergunta2(int id_Jogador)
         {
             InitializeComponent();
-            id_jogador_banco = id_jogador;
+            id_jogador_banco = id_Jogador;
+
         }
 
         private void btnProxima_Click(object sender, EventArgs e)
         {
             //COPIAR DAQUI
-            if (rdbResposta4.Checked == true)
+            if (rdbResposta2.Checked == true)
             {
                 MessageBox.Show("ACERTOU");
 
@@ -44,7 +46,7 @@ namespace JogoDesktop
                 insert += " ( ";
 
                 insert += " '" + lblPergunta.Text + "' ,";
-                insert += " '" + rdbResposta4.Text + "' ,";
+                insert += " '" + rdbResposta2.Text + "' ,";
                 insert += " '" + id_jogador_banco + "' ";
 
 
@@ -61,11 +63,17 @@ namespace JogoDesktop
 
                 //FECHA A CONEXÃO
                 conexao.Close();
+
+                //CHAMA A PRÓXIMA PERGUNTA E FECHA A ANTERIOR
+                
+
                 this.Close();
+                
+
 
             }
-                
-                    
+
+
 
             else
             {
